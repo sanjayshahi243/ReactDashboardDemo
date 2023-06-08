@@ -11,3 +11,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.card-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  background-color: #e3e3e3;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 1em;
+  width: 25%;
+  margin: 0.50em;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0.75em;
+
+}
+
+.table th {
+  background-color: #e3e3e3;
+  padding: 1.5em;
+}
+
+.table tr{
+  border-bottom: 1px solid black;
+}
+
+.table td {
+  padding: 0.5em;
+  text-align: center;
+}
