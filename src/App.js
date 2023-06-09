@@ -4,6 +4,8 @@ import Table from './components/table';
 import Navbar from './navbar';
 import DateRangeFilter from './components/date_range_filter';
 
+import { faUserGroup, faCalendar, faRecordVinyl, faFileArchive } from '@fortawesome/free-solid-svg-icons';
+
 function App() {
   const columns = ["Name", "Created Date", "Calendars", "Recordings", "Attendance Reports"]
   const data = [
@@ -19,19 +21,19 @@ function App() {
       <Navbar />
       
       <div className="wrapper">
-        <DateRangeFilter />
-        <div className="card-row">
-          <CardComponent title="Groups" totalCount="68" increment="↑ 51" days="7" />
-          <CardComponent title="Calendars" totalCount="3947" increment="↑ 2571" days="7" />
-          <CardComponent title="Recordings" totalCount="1869" increment="↑ 1446" days="7" />
-          <CardComponent title="Attendance Reports" totalCount="571" increment="↑ 368" days="7" />
+        <DateRangeFilter className="wrapper-items" />
+        <div className="card-row wrapper-items">
+          <CardComponent title="Groups" totalCount="68" increment="↑ 51" days="7" icon={faUserGroup} />
+          <CardComponent title="Calendars" totalCount="3947" increment="↑ 2571" days="7" icon={faCalendar} />
+          <CardComponent title="Recordings" totalCount="1869" increment="↑ 1446" days="7" icon={faRecordVinyl}/>
+          <CardComponent title="Attendance Reports" totalCount="571" increment="↑ 368" days="7" icon={faFileArchive} />
         </div>
 
-        <div style={{ backgroundColor: '#e3e3e3', padding: '1.5em' }}>
+        <div className='base-color wrapper-items' style={{ padding: '1.5em' }}>
           <b>All Groups data</b>
         </div>
         <div>
-          <Table classname="table" columns={columns} data={data} />
+          <Table classname="table wrapper-items" columns={columns} data={data} />
         </div>
       </div>
     </>

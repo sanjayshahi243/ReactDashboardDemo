@@ -18,7 +18,7 @@ const DateRangeFilter = () => {
   };
 
   return (
-    <div className="date-range-filter">
+    <div className="date-range-filter wrapper-items">
       <input
         type="date"
         value={startDate}
@@ -32,7 +32,7 @@ const DateRangeFilter = () => {
         placeholder="End Date"
       />
       <button onClick={handleApplyFilter}>Apply Filter</button>
-    </div>
+    </div>    
   );
 };
 

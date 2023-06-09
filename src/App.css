@@ -7,6 +7,53 @@
   margin-top: 3em;
 }
 
+.wrapper-items {
+  margin-bottom: 2em;
+}
+
+.base-color {
+  background-color: rgb(227, 227, 227);
+}
+
+.card-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  background-color: #e3e3e3;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 1em;
+  width: 25%;
+  margin: 0.50em;
+}
+
+.card .card-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0.75em;
+
+}
+
+.table th {
+  padding: 1.5em;
+}
+
+.table tr{
+  border-bottom: 1px solid black;
+}
+
+.table td {
+  padding: 0.5em;
+  text-align: center;
+}
+
 /* Date Range Filter Container */
 .date-range-filter {
   display: flex;
@@ -36,4 +83,10 @@
 /* Apply Filter Button Hover */
 .date-range-filter button:hover {
   background-color: #45a049;
+}
+
+.card svg {
+  margin: 1.5em;
+  border: 1em solid rgb(204, 45, 13);
+  border-radius: 50%;
 }
