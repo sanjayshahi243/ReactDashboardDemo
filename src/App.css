@@ -87,6 +87,11 @@
 
 .card svg {
   margin: 1.5em;
-  border: 1em solid rgb(204, 45, 13);
+  background-color: rgb(150, 30, 101);
   border-radius: 50%;
+  padding: 13px;
+  color: white;
+  font-size: 6px;
+  height: 35px;
+  width: 35px;
 }

@@ -5,6 +5,7 @@ import CardContent from '@mui/material/Card';
 import Box from '@mui/material/Box';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Icon } from '@iconify/react';
 
 
 class CardComponent extends Component {
@@ -24,7 +25,7 @@ class CardComponent extends Component {
                   <span>Last {days} days</span>
                 </div>
                 <div>
-                  <FontAwesomeIcon icon={icon} />
+                  <Icon icon={icon} />
                 </div>
             </Box>
         </CardContent>

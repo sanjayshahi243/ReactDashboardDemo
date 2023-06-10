@@ -4,6 +4,7 @@ import Table from './components/table';
 import Navbar from './navbar';
 import DateRangeFilter from './components/date_range_filter';
 
+import { Icon } from '@iconify/react';
 import { faUserGroup, faCalendar, faRecordVinyl, faFileArchive } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
       <div className="wrapper">
         <DateRangeFilter className="wrapper-items" />
         <div className="card-row wrapper-items">
-          <CardComponent title="Groups" totalCount="68" increment="↑ 51" days="7" icon={faUserGroup} />
+          <CardComponent title="Groups" totalCount="68" increment="↑ 51" days="7" icon={"nimbus:user-group"} />
           <CardComponent title="Calendars" totalCount="3947" increment="↑ 2571" days="7" icon={faCalendar} />
           <CardComponent title="Recordings" totalCount="1869" increment="↑ 1446" days="7" icon={faRecordVinyl}/>
           <CardComponent title="Attendance Reports" totalCount="571" increment="↑ 368" days="7" icon={faFileArchive} />
