@@ -33,6 +33,7 @@
 .card .card-box {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 1.5em;
 }
 
 .table {
@@ -59,6 +60,7 @@
 .date-range-filter {
   display: flex;
   justify-content: flex-end;
+  align-items: flex-end;
   padding: 10px;
 }
 
@@ -96,15 +98,8 @@
 } */
 
 .card svg {
-  margin: 1.5em;
-  background-color: rgb(150, 30, 101);
-  border-radius: 50%;
-  padding: 13px;
-  color: white;
-  font-size: 6px;
   height: 35px;
   width: 35px;
-  transform: scale(0.7);
 }
 
 .card .card-span {
@@ -114,4 +109,22 @@
   margin-right: 10px;
   border-radius: 10px;
   padding: 10px;
+}
+
+.table-group-header th {
+  background-color: #f2f2f2;
+}
+
+
+.icon-svg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(150, 30, 101);
+  border-radius: 50%;
+  padding: 13px;
+  color: white;
+  transform: scale(0.7);
+  height: 35px;
+  width: 35px;
 }

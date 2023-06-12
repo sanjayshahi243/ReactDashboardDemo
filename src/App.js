@@ -27,11 +27,11 @@ function App() {
   }, [])
   const columnHelper = createColumnHelper();
   const columns = useMemo(() => [
-    columnHelper.accessor("name", { header: "Name", cell: (info) => info.getValue()}),
-    columnHelper.accessor("created_date", { header: "Created At", cell: (info) => info.getValue()}),
-    columnHelper.accessor("calendars", { header: "Calendars", cell: (info) => info.getValue()}),
-    columnHelper.accessor("recordings", { header: "Recordings", cell: (info) => info.getValue()}),
-    columnHelper.accessor("attendance", { header: "Attendance", cell: (info) => info.getValue()})
+    columnHelper.accessor("name", { header: "NAME", cell: (info) => info.getValue()}),
+    columnHelper.accessor("created_date", { header: "CREATED DATE", cell: (info) => info.getValue()}),
+    columnHelper.accessor("calendars", { header: "CALENDARS", cell: (info) => info.getValue()}),
+    columnHelper.accessor("recordings", { header: "RECORDINGS", cell: (info) => info.getValue()}),
+    columnHelper.accessor("attendance", { header: "ATTENDANCE", cell: (info) => info.getValue()})
   ], []);
   return (
     <>
@@ -42,7 +42,7 @@ function App() {
         <div className="card-row wrapper-items">
           <CardComponent title="Groups" totalCount="68" increment="↑ 51" days="7" icon={"nimbus:user-group"} />
           <CardComponent title="Calendars" totalCount="3947" increment="↑ 2571" days="7" icon={"bi:calendar"} />
-          <CardComponent title="Recordings" totalCount="1869" increment="↑ 1446" days="7" icon={"carbon:recording-filled"}/>
+          <CardComponent title="Recordings" totalCount="1869" increment="↑ 1446" days="7" icon={"uil:camera"}/>
           <CardComponent title="Attendance Reports" totalCount="571" increment="↑ 368" days="7" icon={"iconamoon:copy"} />
         </div>
 

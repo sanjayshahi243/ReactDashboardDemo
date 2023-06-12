@@ -28,7 +28,7 @@ export const DataTable = ({
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
-                    <th key={header.id} texttransform="capitalize">
+                    <th key={header.id} texttransform="capitalize" style={{padding: '15px', backgroundColor:'rgb(227, 227, 227)'}}>
                       {header.isPlaceholder
                         ? null
                         : flexRender(

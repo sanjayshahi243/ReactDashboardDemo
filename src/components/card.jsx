@@ -24,7 +24,7 @@ class CardComponent extends Component {
                     <span>Last {days} days</span>
                   </div>
                 </div>
-                <div>
+                <div className='icon-svg'>
                   <Icon icon={icon} />
                 </div>
             </Box>

@@ -39,7 +39,6 @@ const DateRangeFilter = ({ filterData }) => {
         />
       </div>
       <div>
-        <p></p>
         <button onClick={handleApplyFilter}>Apply Filter</button>
       </div>
     </div>
