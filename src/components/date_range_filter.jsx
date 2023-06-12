@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const DateRangeFilter = ({filterData}) => {
+const DateRangeFilter = ({ filterData }) => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
@@ -12,26 +12,37 @@ const DateRangeFilter = ({filterData}) => {
     setEndDate(event.target.value);
   };
 
-  const handleApplyFilter = () => {    
+  const handleApplyFilter = () => {
     filterData(startDate, endDate);
   };
 
   return (
     <div className="date-range-filter wrapper-items">
-      <input
-        type="date"
-        value={startDate}
-        onChange={handleStartDateChange}
-        placeholder="Start Date"
-      />
-      <input
-        type="date"
-        value={endDate}
-        onChange={handleEndDateChange}
-        placeholder="End Date"
-      />
-      <button onClick={handleApplyFilter}>Apply Filter</button>
-    </div>    
+      <div>
+        <label htmlFor="startDate">From:</label>
+        <input
+          type="date"
+          id="startDate"
+          value={startDate}
+          onChange={handleStartDateChange}
+          placeholder="Start Date"
+        />
+      </div>
+      <div>
+        <label htmlFor="endDate">To:</label>
+        <input
+          type="date"
+          id="endDate"
+          value={endDate}
+          onChange={handleEndDateChange}
+          placeholder="End Date"
+        />
+      </div>
+      <div>
+        <p></p>
+        <button onClick={handleApplyFilter}>Apply Filter</button>
+      </div>
+    </div>
   );
 };
 

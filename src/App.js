@@ -53,14 +53,6 @@ function App() {
         {/* Table */}
         <div>
           <DataTable columns={columns} data={tableData} />
-          {/* <Table
-            columns={columns}
-            data={data}
-            onSort={handleSort}
-            fetchData={fetchData}
-            loading={loading}
-            pageCount={pageCount}
-          /> */}
         </div>
       </div>
     </>

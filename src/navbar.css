@@ -15,6 +15,7 @@ nav {
   /* Dropdowns */
   nav .navbar__dropdowns {
     display: flex;
+    align-items: center;
   }
   
   /* Dropdown */
@@ -32,6 +33,11 @@ nav {
     font-size: 16px;
   }
   
+  nav .navbar__dropdown-btn svg {
+    height: 0.75em;
+    margin-left: 5px;
+  }
+
   /* Dropdown Content */
   nav .navbar__dropdown-content {
     display: none;
