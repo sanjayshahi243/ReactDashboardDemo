@@ -1,40 +1,66 @@
+import React, { useCallback, useEffect, useMemo, useState } from "react";
+
 import './App.css';
 import CardComponent from './components/card';
-import Table from './components/table';
+// import DataTable from './components/table';
 import Navbar from './navbar';
 import DateRangeFilter from './components/date_range_filter';
 
-import { Icon } from '@iconify/react';
-import { faUserGroup, faCalendar, faRecordVinyl, faFileArchive } from '@fortawesome/free-solid-svg-icons';
+import { createColumnHelper } from "@tanstack/react-table";
+import DataTable from "./components/table";
+import Data from "./data.json"
 
 function App() {
-  const columns = ["Name", "Created Date", "Calendars", "Recordings", "Attendance Reports"]
-  const data = [
-    ['BDSE04-WDF-0322', 'Sept. 12, 2022', '60', '60', '28'],
-    ['DSE02-CPL-0921(WOU)', 'Sept. 12, 2022', '65', '60', '28'],
-    ['PHWC-BDSE03-API-1121', 'Sept. 12, 2022', '25', '60', '28'],
-    ['BDSE06-PFS-0622', 'Sept. 12, 2022', '40', '38', '28'],
-    ['JISC-BDSE03-API-1121', 'Sept. 12, 2022', '12', '60', '28'],
-  ];
-
+  const [tableData, setTableData] = useState([]);
+  const filterData = (startDate, endDate) => {
+    const filteredData = Data.filter((item) => {
+      const createdDate = new Date(item.created_date);
+      const startDate_date = new Date(startDate);
+      const endDate_date = new Date(endDate);
+      console.log(createdDate, typeof(startDate))
+      return createdDate >= startDate_date && createdDate <= endDate_date;
+    });
+    setTableData(filteredData);
+  };
+  useEffect(() => {
+    setTableData(Data)
+  }, [])
+  const columnHelper = createColumnHelper();
+  const columns = useMemo(() => [
+    columnHelper.accessor("name", { header: "Name", cell: (info) => info.getValue()}),
+    columnHelper.accessor("created_date", { header: "Created At", cell: (info) => info.getValue()}),
+    columnHelper.accessor("calendars", { header: "Calendars", cell: (info) => info.getValue()}),
+    columnHelper.accessor("recordings", { header: "Recordings", cell: (info) => info.getValue()}),
+    columnHelper.accessor("attendance", { header: "Attendance", cell: (info) => info.getValue()})
+  ], []);
   return (
     <>
       <Navbar />
       
       <div className="wrapper">
-        <DateRangeFilter className="wrapper-items" />
+        <DateRangeFilter className="wrapper-items" filterData={filterData} />
         <div className="card-row wrapper-items">
           <CardComponent title="Groups" totalCount="68" increment="↑ 51" days="7" icon={"nimbus:user-group"} />
-          <CardComponent title="Calendars" totalCount="3947" increment="↑ 2571" days="7" icon={faCalendar} />
-          <CardComponent title="Recordings" totalCount="1869" increment="↑ 1446" days="7" icon={faRecordVinyl}/>
-          <CardComponent title="Attendance Reports" totalCount="571" increment="↑ 368" days="7" icon={faFileArchive} />
+          <CardComponent title="Calendars" totalCount="3947" increment="↑ 2571" days="7" icon={"bi:calendar"} />
+          <CardComponent title="Recordings" totalCount="1869" increment="↑ 1446" days="7" icon={"carbon:recording-filled"}/>
+          <CardComponent title="Attendance Reports" totalCount="571" increment="↑ 368" days="7" icon={"iconamoon:copy"} />
         </div>
 
         <div className='base-color wrapper-items' style={{ padding: '1.5em' }}>
           <b>All Groups data</b>
         </div>
+
+        {/* Table */}
         <div>
-          <Table classname="table wrapper-items" columns={columns} data={data} />
+          <DataTable columns={columns} data={tableData} />
+          {/* <Table
+            columns={columns}
+            data={data}
+            onSort={handleSort}
+            fetchData={fetchData}
+            loading={loading}
+            pageCount={pageCount}
+          /> */}
         </div>
       </div>
     </>

@@ -1,26 +1,67 @@
-import React from 'react';
+import {TableContainer, Table, TableHead, TableRow, TableBody, TableCell} from '@mui/material'
 
-function Table({ classname, columns, data }) {
+import {
+  flexRender,
+  getCoreRowModel,
+  useReactTable,
+} from "@tanstack/react-table";
+
+export const DataTable = ({
+  data,
+  columns,
+}) => {
+  const table = useReactTable({
+    columns,
+    data,
+    getCoreRowModel: getCoreRowModel(),
+  });
   return (
-    <table className={classname}>
-      <thead>
-        <tr>
-          {columns.map((column, index) => (
-            <th className="base-color" key={index}>{column}</th>
-          ))}
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((row, rowIndex) => (
-          <tr key={rowIndex}>
-            {row.map((cell, cellIndex) => (
-              <td key={cellIndex}>{cell}</td>
+    <div>
+      <TableContainer
+        w="full"
+        overflowY="auto"
+        position="relative"
+      >
+        <Table variant={"striped"} size="sm">
+          <TableHead position="sticky" top={0} zIndex={10}>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <TableRow key={headerGroup.id}>
+                {headerGroup.headers.map((header) => {
+                  return (
+                    <th key={header.id} texttransform="capitalize">
+                      {header.isPlaceholder
+                        ? null
+                        : flexRender(
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
+                    </th>
+                  );
+                })}
+              </TableRow>
             ))}
-          </tr>
-        ))}
-      </tbody>
-    </table>
+          </TableHead>
+          <TableBody>
+            {table.getRowModel().rows.map((row) => (
+              <TableRow key={row.id}>
+                {row.getVisibleCells().map((cell) => {
+                  
+                    return (
+                      <TableCell key={cell.id} sx={{textAlign: "center"}}>
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext()
+                        )}
+                      </TableCell>
+                    );
+                  })}
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </div>
   );
-}
+};
 
-export default Table;
+export default DataTable;

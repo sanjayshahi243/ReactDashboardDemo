@@ -1,0 +1,37 @@
+[
+    {
+        "name": "BDSE04-WDF-0322",
+        "created_date": "12/13/2022",
+        "calendars": "12",
+        "recordings": "12",
+        "attendance": "12"
+    },
+    {
+        "name": "DSE02-CPL-0921(WOU)",
+        "created_date": "03/04/2023",
+        "calendars": "12",
+        "recordings": "12",
+        "attendance": "12"
+    },
+    {
+        "name": "PHWC-BDSE03-API-1121",
+        "created_date": "06/06/2023",
+        "calendars": "15",
+        "recordings": "15",
+        "attendance": "15"
+    },
+    {
+        "name": "BDSE06-PFS-0622",
+        "created_date": "04/06/2023",
+        "calendars": "89",
+        "recordings": "69",
+        "attendance": "68"
+    },
+    {
+        "name": "JISC-BDSE03-API-1121",
+        "created_date": "06/04/2023",
+        "calendars": "68",
+        "recordings": "67",
+        "attendance": "56"
+    }
+]

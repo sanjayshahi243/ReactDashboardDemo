@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-const DateRangeFilter = () => {
+const DateRangeFilter = ({filterData}) => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
@@ -12,9 +12,8 @@ const DateRangeFilter = () => {
     setEndDate(event.target.value);
   };
 
-  const handleApplyFilter = () => {
-    // Apply filter logic here using startDate and endDate
-    console.log('Filter applied:', startDate, endDate);
+  const handleApplyFilter = () => {    
+    filterData(startDate, endDate);
   };
 
   return (
